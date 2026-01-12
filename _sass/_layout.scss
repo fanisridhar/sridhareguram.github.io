@@ -30,21 +30,46 @@ body.sticky-bottom-footer {
 .profile {
   img {
     width: 100%;
+    max-width: 100%;
+    height: auto;
   }
 }
 
-// TODO: redefine content layout.
-
+// Content layout
+.post {
+  margin-bottom: 2rem;
+  
+  .post-header {
+    margin-bottom: 2rem;
+  }
+  
+  .post-content {
+    line-height: 1.7;
+  }
+}
 
 /******************************************************************************
  * Publications
  ******************************************************************************/
 
-// TODO: redefine publications layout.
+.publications {
+  .year {
+    margin-top: 2rem;
+    padding-top: 1rem;
+  }
+}
 
 
 /*****************************************************************************
 * Projects
 *****************************************************************************/
 
-// TODO: redefine projects layout.
+.projects {
+  .grid {
+    margin: 0 auto;
+  }
+  
+  .grid-item {
+    margin-bottom: 1.5rem;
+  }
+}
