@@ -1,0 +1,11 @@
+name = "portfolio-contact"
+main = "contact-worker.js"
+compatibility_date = "2026-01-01"
+
+[vars]
+# Comma-separated list of origins allowed to call the Worker (your Pages origin, no path).
+ALLOWED_ORIGIN = "https://fanisridhar.github.io"
+TO_EMAIL = "sridharreddy.eguram@gmail.com"
+# Must be an address on a domain verified in Resend, e.g. "Portfolio <contact@yourdomain.com>".
+FROM_EMAIL = "Portfolio <onboarding@resend.dev>"
+# The API key is a secret, never commit it: run `npx wrangler secret put RESEND_API_KEY`.
