@@ -28,7 +28,7 @@ acceptable on quality - with results that someone else can reproduce.
 | Piece | File |
 |---|---|
 | Seeded, hashed request set (32-1024 word prompts, 32-128 output tokens) | `bench/make_requests.py` |
-| Async streaming load generator (TTFT/TPOT/E2E, concurrency sweep) | `bench/loadgen.py` |
+| Async streaming load driver (TTFT/TPOT/E2E, concurrency sweep) | `bench/loadgen.py` |
 | Environment/config capture incl. request-set sha256 | `bench/env_capture.py` |
 | Sweep comparison table, latency "knee", plot | `bench/report.py` |
 | Nsight Systems run wrapper + CSV parser (top kernels, GPU idle %) | `profiling/run_nsys.sh`, `profiling/parse_nsys.py` |
@@ -85,7 +85,7 @@ exact match 15%, mean token similarity 0.968, first divergence at ~46% of the wa
   **not run** (no GPU). Everything marked simulated is simulated.
 - The simulator's parameters are invented; do not read `sim-a` vs `sim-b` as a vLLM vs TensorRT-LLM result.
 - Concurrency levels above 40 only reach 40 in flight because each level sends 40 requests.
-- The quality tool compares generated text only; perplexity/logprob and task-accuracy checks are the next step on real hardware.
+- The quality tool compares output text only; perplexity/logprob and task-accuracy checks are the next step on real hardware.
 
 ## Reproduce the simulated demo
 ```bash

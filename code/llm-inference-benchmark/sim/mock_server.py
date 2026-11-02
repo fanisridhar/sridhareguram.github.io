@@ -1,6 +1,6 @@
 """SIMULATED OpenAI-compatible LLM server with continuous batching.
 
-NOT a real engine and NOT vLLM/TensorRT-LLM. It exists so the load generator,
+NOT a real engine and NOT vLLM/TensorRT-LLM. It exists so the load driver,
 metrics, plots and quality tooling can be validated on a machine without a GPU,
 and to demonstrate WHY latency rises under load in a continuous-batching server:
 

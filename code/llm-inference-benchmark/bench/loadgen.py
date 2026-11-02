@@ -1,4 +1,4 @@
-"""Async load generator for any OpenAI-compatible /v1/completions endpoint.
+"""Async load driver for any OpenAI-compatible /v1/completions endpoint.
 
 vLLM (`vllm serve`) and TensorRT-LLM (`trtllm-serve`) both expose this API, so
 the SAME client drives both. Closed-loop load: `concurrency` workers each send
@@ -90,7 +90,7 @@ def main():
     ap.add_argument("--levels", default="1,2,4,8,16,32,64")
     ap.add_argument("--timeout", type=float, default=300)
     ap.add_argument("--out", required=True)
-    ap.add_argument("--save-text", help="write generated text per request (for quality comparison)")
+    ap.add_argument("--save-text", help="write output text per request (for quality comparison)")
     a = ap.parse_args()
     reqs = [json.loads(l) for l in open(a.requests)][: a.n]
     sweep, texts = [], {}

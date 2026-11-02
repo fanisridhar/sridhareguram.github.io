@@ -1,6 +1,6 @@
-"""Programmatically generated weekly inventory counts per (item, location) with LABELLED anomalies.
+"""Source weekly inventory counts per (item, location) with LABELLED anomalies.
 
-Real inventory data is private, so this generator produces data with the same
+Real inventory data is private, so this module builds source data (by script) with the same
 structure the POC uses -- historical counts by item and location -- plus ground
 truth for the injected anomalies, so detectors can be scored objectively.
 
@@ -21,7 +21,7 @@ import pandas as pd
 N_ITEMS, N_LOCS, N_WEEKS = 60, 8, 104
 
 
-def generate(seed=42, anomaly_rate=0.02) -> pd.DataFrame:
+def build_source(seed=42, anomaly_rate=0.02) -> pd.DataFrame:
     rng = np.random.default_rng(seed)
     rows = []
     for i in range(N_ITEMS):
@@ -56,6 +56,6 @@ if __name__ == "__main__":
     ap.add_argument("--out", default="data/inventory_counts.csv")
     ap.add_argument("--seed", type=int, default=42)
     a = ap.parse_args()
-    df = generate(a.seed)
+    df = build_source(a.seed)
     df.to_csv(a.out, index=False)
     print(f"{len(df)} rows, {df.is_anomaly.sum()} anomalies ({100*df.is_anomaly.mean():.2f}%) -> {a.out}")

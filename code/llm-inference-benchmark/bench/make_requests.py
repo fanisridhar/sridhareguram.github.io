@@ -1,4 +1,4 @@
-"""Generate the FIXED request set used for every engine/config (seeded + hashed).
+"""Build the FIXED request set used for every engine/config (seeded + hashed).
 
 The same file is replayed against vLLM, TensorRT-LLM (or the simulator) so the
 comparison is like-for-like. The sha256 of the file is stored with every run.

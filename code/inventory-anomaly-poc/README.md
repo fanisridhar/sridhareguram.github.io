@@ -7,10 +7,10 @@ A proof of concept that learns from **historical inventory counts by item and lo
 review**. Six detector families are compared on identical data, features and a time-ordered split: a **regression** residual
 detector, a **decision tree**, an **SVM**, a **random-forest + gradient-boosting ensemble**, a **PyTorch classification model
 (MLP)**, and a **two-stage PyTorch model - the MLP classification model feeding a GRU (RNN) classifier**. Results are averaged over
-5 independently generated datasets. A **Flask site** lets a reviewer confirm or dismiss flags, and a **SQL + Python
+5 independently built source datasets. A **Flask site** lets a reviewer confirm or dismiss flags, and a **SQL + Python
 reconciliation** checks dashboard (Power BI-style) totals against source records.
 
-> **Data note.** Real inventory data is private, so every number here is measured on **generated data (not production data) with injected, labelled
+> **Data note.** Real inventory data is private, so every number here is measured on **source data built by a script (not production data), with injected, labelled
 > anomalies** (needed to score detectors objectively). The Azure ML files are **templates that were not run** (no Azure
 > subscription in the build environment), and Power BI is represented by a CSV export. Everything else runs locally.
 
@@ -28,7 +28,7 @@ the reported numbers trustworthy.
 ## Work done
 | Piece | File |
 |---|---|
-| Data generator: 60 items x 8 locations x 104 weeks, seasonality + trend + per-series noise + **benign promotion surges**; 5 labelled anomaly types | `src/generate_data.py` |
+| Source-data builder: 60 items x 8 locations x 104 weeks, seasonality + trend + per-series noise + **benign promotion surges**; 5 labelled anomaly types | `src/source_data.py` |
 | Leakage-safe features (week *t* uses only counts up to *t*; robust median/MAD stats; seasonal lag) and time-ordered split | `src/features.py` |
 | Regression, decision tree, SVM, RF+GB ensemble | `src/classical_models.py` |
 | PyTorch **MLP -> GRU** two-stage model (stage 1 classification model; stage 2 RNN over the last 12 weeks of stage-1 embeddings + probabilities) | `src/torch_models.py` |
@@ -93,8 +93,8 @@ unit error, and "stale" (previous week's number repeated). Each model's alert th
    locations; the fixed aggregate was confirmed by a second, independent implementation (residual 0).
 
 ## Honest limitations
-- **Generated data (not real inventory)**: absolute scores say nothing about real inventory. A first version of the generator (large, isolated anomalies
-  only) let **every model score ~100%**, so it could not rank them; the final generator adds noisier series, benign promotion
+- **Source data built by a script (not real inventory)**: absolute scores say nothing about real inventory. A first version of the data builder (large, isolated anomalies
+  only) let **every model score ~100%**, so it could not rank them; the final builder adds noisier series, benign promotion
   surges and subtler/stale anomalies *because the comparison was uninformative*, not to favour a model. Anomaly types were fixed
   before looking at results of the final version.
 - Differences among the top models are within seed-to-seed variation (5 datasets); PyTorch CPU training adds ±0.005 run-to-run
@@ -108,7 +108,7 @@ unit error, and "stale" (previous week's number repeated). Each model's alert th
 ## Reproduce
 ```bash
 pip install numpy pandas scipy scikit-learn torch flask
-python src/generate_data.py          # optional: writes data/inventory_counts.csv
+python src/source_data.py          # optional: writes data/inventory_counts.csv
 python src/run_comparison.py         # ~2 min; metrics.{md,json}, recall_by_anomaly_type.md, data/inventory.db
 python src/reconcile.py              # reconciliation.json, dashboard_export.csv, mismatches
 python src/app.py                    # http://127.0.0.1:5000  (review queue; needs data/inventory.db)

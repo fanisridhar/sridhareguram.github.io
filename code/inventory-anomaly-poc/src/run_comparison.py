@@ -15,7 +15,7 @@ from sklearn.metrics import average_precision_score, precision_recall_curve
 sys.path.insert(0, str(Path(__file__).parent))
 from classical_models import build
 from features import add_features
-from generate_data import generate
+from source_data import build_source
 from torch_models import fit_two_stage
 
 ROOT = Path(__file__).resolve().parent.parent
@@ -42,7 +42,7 @@ SEEDS = [42, 43, 44, 45, 46]
 
 
 def run_seed(seed):
-    raw = generate(seed=seed)
+    raw = build_source(seed=seed)
     df = add_features(raw)
     tr, va, te = (df[df.split == k] for k in ("train", "val", "test"))
     scorers = build(tr, seed=seed)
@@ -90,7 +90,7 @@ def main():
         md.append(f"| {a['model']} | {a['precision']:.3f} ± {a['precision_std']:.3f} | {a['recall']:.3f} ± {a['recall_std']:.3f} | "
                   f"{a['f1']:.3f} ± {a['f1_std']:.3f} | {a['pr_auc']:.3f} ± {a['pr_auc_std']:.3f} | "
                   f"{a['flagged']:.0f} / {n_test} ({100*a['flagged']/n_test:.1f}%) |")
-    md.append(f"\nMean ± std over {len(SEEDS)} independently generated datasets (seeds {SEEDS}); each test set has ~{n_test} rows and "
+    md.append(f"\nMean ± std over {len(SEEDS)} independently built source datasets (seeds {SEEDS}); each test set has ~{n_test} rows and "
               f"~{n_pos:.0f} true anomalies. {meta['split']}. Threshold per model = max-F1 on validation weeks.")
     (ROOT / "results" / "metrics.md").write_text("\n".join(md) + "\n")
     print("\n".join(md))

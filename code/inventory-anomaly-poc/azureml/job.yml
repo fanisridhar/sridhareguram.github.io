@@ -7,7 +7,7 @@ experiment_name: inventory-anomaly-poc
 code: ../
 command: >-
   pip install -r requirements.txt &&
-  python src/generate_data.py --out data/inventory_counts.csv &&
+  python src/source_data.py --out data/inventory_counts.csv &&
   python src/run_comparison.py
 environment:
   image: mcr.microsoft.com/azureml/openmpi4.1.0-ubuntu22.04

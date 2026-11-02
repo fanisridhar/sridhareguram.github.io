@@ -14,7 +14,7 @@ category: academic
 
 ## Reproducible build
 
-Six detectors compared on identical features and a time-ordered split, averaged over 5 independently generated datasets (generated data with labelled anomalies, since real inventory data is private):
+Six detectors compared on identical features and a time-ordered split, averaged over 5 independently built source datasets (source data built by a script, with labelled anomalies, since real inventory data is private):
 
 | model | precision | recall | F1 | PR-AUC |
 |---|---:|---:|---:|---:|

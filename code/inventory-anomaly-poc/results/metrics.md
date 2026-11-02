@@ -7,4 +7,4 @@
 | ensemble (RF+GB) | 0.868 ± 0.092 | 0.706 ± 0.057 | 0.772 ± 0.010 | 0.865 ± 0.020 | 109 / 6720 (1.6%) |
 | SVM (rbf) | 0.737 ± 0.088 | 0.645 ± 0.057 | 0.684 ± 0.051 | 0.711 ± 0.034 | 116 / 6720 (1.7%) |
 
-Mean ± std over 5 independently generated datasets (seeds [42, 43, 44, 45, 46]); each test set has ~6720 rows and ~131 true anomalies. train weeks 12-77, val 78-89, test 90-103. Threshold per model = max-F1 on validation weeks.
+Mean ± std over 5 independently built source datasets (seeds [42, 43, 44, 45, 46]); each test set has ~6720 rows and ~131 true anomalies. train weeks 12-77, val 78-89, test 90-103. Threshold per model = max-F1 on validation weeks.

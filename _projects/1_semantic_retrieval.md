@@ -29,7 +29,7 @@ Evaluated a semantic-retrieval service where relevance and response time both ma
 
 ## Reproducible build
 
-A self-contained reproduction of the method: a generated 40,000-document corpus, a **fixed 50-query benchmark with labelled relevant documents**, a service with switchable optimisations, and per-stage traces. Measured on that setup (not the Mercor system):
+A self-contained reproduction of the method: a 40,000-document source corpus built by a script, a **fixed 50-query benchmark with labelled relevant documents**, a service with switchable optimisations, and per-stage traces. Measured on that setup (not the Mercor system):
 
 | change (cumulative) | p95 latency | queries with a relevant top-five result |
 |---|---:|---:|

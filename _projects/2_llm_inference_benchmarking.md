@@ -16,7 +16,7 @@ Compared two LLM serving stacks on the same workload to understand why latency r
 
 ## Reproducible build
 
-A benchmarking harness for any OpenAI-compatible server (works with `vllm serve` and `trtllm-serve`): a fixed, hashed request set; an async streaming load generator reporting TTFT, TPOT and end-to-end p50/p95/p99 across a concurrency sweep; Nsight Systems wrapper and parser (top kernels, GPU idle %); a quantization output-comparison tool; and an environment capture that records engine versions, GPU/CUDA, git commit and the request-set hash.
+A benchmarking harness for any OpenAI-compatible server (works with `vllm serve` and `trtllm-serve`): a fixed, hashed request set; an async streaming load driver reporting TTFT, TPOT and end-to-end p50/p95/p99 across a concurrency sweep; Nsight Systems wrapper and parser (top kernels, GPU idle %); a quantization output-comparison tool; and an environment capture that records engine versions, GPU/CUDA, git commit and the request-set hash.
 
 **Important:** the build environment had no GPU, so the harness was validated against a **simulated** continuous-batching server. The numbers below are simulation output that demonstrate the *mechanism*, not vLLM or TensorRT-LLM results.
 
