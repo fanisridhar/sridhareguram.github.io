@@ -1,0 +1,502 @@
+[
+ {
+  "id": 0,
+  "text": "todufahi gotogoqu togoju",
+  "topic": 14,
+  "concepts": [
+   11,
+   12
+  ],
+  "n_relevant": 21
+ },
+ {
+  "id": 1,
+  "text": "qusira koqu latedu",
+  "topic": 13,
+  "concepts": [
+   12,
+   20
+  ],
+  "n_relevant": 10
+ },
+ {
+  "id": 2,
+  "text": "telako pepevi riwedu",
+  "topic": 12,
+  "concepts": [
+   28,
+   26
+  ],
+  "n_relevant": 13
+ },
+ {
+  "id": 3,
+  "text": "bapepe wetenefa sotovila",
+  "topic": 33,
+  "concepts": [
+   13,
+   15
+  ],
+  "n_relevant": 15
+ },
+ {
+  "id": 4,
+  "text": "vigone ravipemu lagori",
+  "topic": 6,
+  "concepts": [
+   26,
+   2
+  ],
+  "n_relevant": 11
+ },
+ {
+  "id": 5,
+  "text": "wenesiba wenera duvimu",
+  "topic": 15,
+  "concepts": [
+   22,
+   2
+  ],
+  "n_relevant": 16
+ },
+ {
+  "id": 6,
+  "text": "sopene rasite kosokohi",
+  "topic": 38,
+  "concepts": [
+   2,
+   17
+  ],
+  "n_relevant": 16
+ },
+ {
+  "id": 7,
+  "text": "perahiwe neviju lakosine",
+  "topic": 37,
+  "concepts": [
+   14,
+   23
+  ],
+  "n_relevant": 15
+ },
+ {
+  "id": 8,
+  "text": "vigo jugosi kogone",
+  "topic": 8,
+  "concepts": [
+   5,
+   24
+  ],
+  "n_relevant": 12
+ },
+ {
+  "id": 9,
+  "text": "toramu barabako solarahi",
+  "topic": 22,
+  "concepts": [
+   20,
+   26
+  ],
+  "n_relevant": 11
+ },
+ {
+  "id": 10,
+  "text": "tekojuso june viperisi",
+  "topic": 18,
+  "concepts": [
+   16,
+   21
+  ],
+  "n_relevant": 10
+ },
+ {
+  "id": 11,
+  "text": "gohirine qusorato wepepe",
+  "topic": 21,
+  "concepts": [
+   7,
+   8
+  ],
+  "n_relevant": 17
+ },
+ {
+  "id": 12,
+  "text": "koduquto riragoju fafamute",
+  "topic": 25,
+  "concepts": [
+   3,
+   5
+  ],
+  "n_relevant": 19
+ },
+ {
+  "id": 13,
+  "text": "dujuqu pequmumu wekomu",
+  "topic": 12,
+  "concepts": [
+   24,
+   5
+  ],
+  "n_relevant": 16
+ },
+ {
+  "id": 14,
+  "text": "tekora fatelato bajujuba",
+  "topic": 21,
+  "concepts": [
+   26,
+   5
+  ],
+  "n_relevant": 16
+ },
+ {
+  "id": 15,
+  "text": "ququsote jupeto penemu",
+  "topic": 26,
+  "concepts": [
+   18,
+   14
+  ],
+  "n_relevant": 16
+ },
+ {
+  "id": 16,
+  "text": "perabara nebawe lalasipe",
+  "topic": 6,
+  "concepts": [
+   1,
+   2
+  ],
+  "n_relevant": 9
+ },
+ {
+  "id": 17,
+  "text": "pebala sosoba hitesiri",
+  "topic": 23,
+  "concepts": [
+   4,
+   25
+  ],
+  "n_relevant": 18
+ },
+ {
+  "id": 18,
+  "text": "neweba pefadu rigoto",
+  "topic": 12,
+  "concepts": [
+   0,
+   29
+  ],
+  "n_relevant": 14
+ },
+ {
+  "id": 19,
+  "text": "dutela gohiwe muhivi",
+  "topic": 19,
+  "concepts": [
+   11,
+   10
+  ],
+  "n_relevant": 15
+ },
+ {
+  "id": 20,
+  "text": "kogofa bawe sijutera",
+  "topic": 3,
+  "concepts": [
+   28,
+   19
+  ],
+  "n_relevant": 11
+ },
+ {
+  "id": 21,
+  "text": "jukone vifaso lasigosi",
+  "topic": 7,
+  "concepts": [
+   2,
+   6
+  ],
+  "n_relevant": 15
+ },
+ {
+  "id": 22,
+  "text": "duritoko mudu dusone",
+  "topic": 24,
+  "concepts": [
+   3,
+   18
+  ],
+  "n_relevant": 12
+ },
+ {
+  "id": 23,
+  "text": "riteto dusipe qugojula",
+  "topic": 32,
+  "concepts": [
+   23,
+   2
+  ],
+  "n_relevant": 11
+ },
+ {
+  "id": 24,
+  "text": "fasope kogodu pequsite",
+  "topic": 29,
+  "concepts": [
+   7,
+   1
+  ],
+  "n_relevant": 18
+ },
+ {
+  "id": 25,
+  "text": "qusiri hidusiju solarahi",
+  "topic": 38,
+  "concepts": [
+   19,
+   29
+  ],
+  "n_relevant": 22
+ },
+ {
+  "id": 26,
+  "text": "tera junevi hilapete",
+  "topic": 5,
+  "concepts": [
+   23,
+   24
+  ],
+  "n_relevant": 22
+ },
+ {
+  "id": 27,
+  "text": "lateju vira lasoju",
+  "topic": 12,
+  "concepts": [
+   16,
+   7
+  ],
+  "n_relevant": 11
+ },
+ {
+  "id": 28,
+  "text": "vihihi nesowego ririgomu",
+  "topic": 0,
+  "concepts": [
+   9,
+   19
+  ],
+  "n_relevant": 7
+ },
+ {
+  "id": 29,
+  "text": "riquto qurasone torafa",
+  "topic": 14,
+  "concepts": [
+   20,
+   9
+  ],
+  "n_relevant": 17
+ },
+ {
+  "id": 30,
+  "text": "viqune sisilasi viperisi",
+  "topic": 20,
+  "concepts": [
+   16,
+   9
+  ],
+  "n_relevant": 13
+ },
+ {
+  "id": 31,
+  "text": "rifaju tejumu lanelasi",
+  "topic": 6,
+  "concepts": [
+   6,
+   15
+  ],
+  "n_relevant": 13
+ },
+ {
+  "id": 32,
+  "text": "rafala tegogovi soteso",
+  "topic": 33,
+  "concepts": [
+   29,
+   22
+  ],
+  "n_relevant": 16
+ },
+ {
+  "id": 33,
+  "text": "pesone latogoso qutogomu",
+  "topic": 23,
+  "concepts": [
+   21,
+   13
+  ],
+  "n_relevant": 17
+ },
+ {
+  "id": 34,
+  "text": "jurate qukoqu jugoduwe",
+  "topic": 17,
+  "concepts": [
+   13,
+   24
+  ],
+  "n_relevant": 9
+ },
+ {
+  "id": 35,
+  "text": "lanemu larate hisoqugo",
+  "topic": 32,
+  "concepts": [
+   8,
+   28
+  ],
+  "n_relevant": 8
+ },
+ {
+  "id": 36,
+  "text": "ragokoba sisifa jujurala",
+  "topic": 32,
+  "concepts": [
+   23,
+   14
+  ],
+  "n_relevant": 17
+ },
+ {
+  "id": 37,
+  "text": "hiwedu rinete pemuduri",
+  "topic": 24,
+  "concepts": [
+   2,
+   20
+  ],
+  "n_relevant": 16
+ },
+ {
+  "id": 38,
+  "text": "neduwe laso quridu",
+  "topic": 1,
+  "concepts": [
+   19,
+   6
+  ],
+  "n_relevant": 13
+ },
+ {
+  "id": 39,
+  "text": "tepela rafari siwehiju",
+  "topic": 18,
+  "concepts": [
+   29,
+   18
+  ],
+  "n_relevant": 12
+ },
+ {
+  "id": 40,
+  "text": "bari muvi julabaqu",
+  "topic": 20,
+  "concepts": [
+   25,
+   1
+  ],
+  "n_relevant": 11
+ },
+ {
+  "id": 41,
+  "text": "nesikodu sohi laraviwe",
+  "topic": 4,
+  "concepts": [
+   26,
+   7
+  ],
+  "n_relevant": 9
+ },
+ {
+  "id": 42,
+  "text": "hilate famuraju faquju",
+  "topic": 14,
+  "concepts": [
+   9,
+   23
+  ],
+  "n_relevant": 14
+ },
+ {
+  "id": 43,
+  "text": "sisofafa ritomuvi hitesovi",
+  "topic": 27,
+  "concepts": [
+   5,
+   8
+  ],
+  "n_relevant": 9
+ },
+ {
+  "id": 44,
+  "text": "gosijufa pegodu visovidu",
+  "topic": 34,
+  "concepts": [
+   7,
+   2
+  ],
+  "n_relevant": 16
+ },
+ {
+  "id": 45,
+  "text": "bakosi bavite pepera",
+  "topic": 3,
+  "concepts": [
+   1,
+   17
+  ],
+  "n_relevant": 14
+ },
+ {
+  "id": 46,
+  "text": "latohi batebara pemuduri",
+  "topic": 20,
+  "concepts": [
+   9,
+   28
+  ],
+  "n_relevant": 13
+ },
+ {
+  "id": 47,
+  "text": "nela pefato barihi",
+  "topic": 8,
+  "concepts": [
+   7,
+   10
+  ],
+  "n_relevant": 15
+ },
+ {
+  "id": 48,
+  "text": "rarala laramura lamu",
+  "topic": 28,
+  "concepts": [
+   18,
+   21
+  ],
+  "n_relevant": 12
+ },
+ {
+  "id": 49,
+  "text": "jubako rimugora solarahi",
+  "topic": 23,
+  "concepts": [
+   22,
+   18
+  ],
+  "n_relevant": 18
+ }
+]

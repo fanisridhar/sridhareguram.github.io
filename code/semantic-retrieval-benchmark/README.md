@@ -1,0 +1,94 @@
+# Semantic Retrieval Benchmark and Latency Tuning
+
+Python · scikit-learn (TF-IDF + truncated SVD embeddings) · BM25 · retrieval traces (Langfuse-style spans, JSONL)
+
+## Abstract
+A semantic-retrieval service has to be **relevant** (the right document in the top results) and **fast** (low tail latency).
+This project builds a small semantic search service, a **fixed 50-query benchmark with ground-truth relevance labels**, and a
+trace layer that records time per pipeline stage. Every optimisation is a switchable flag, so each change is measured on the
+*same* corpus, *same* 50 queries and *same* number of timed repetitions. On the measured run, p95 latency fell from
+**119.5 ms to 2.8 ms** and queries with a relevant top-five result rose from **46/50 (92%) to 50/50 (100%)**.
+
+> These numbers come from this self-contained reproduction (40,000-document synthetic corpus, one 4-core CPU). They are
+> **not** the numbers from the Mercor engagement on the resume (1.2 s → 900 ms; 38 → 44 of 50). Same method, different system.
+
+## Requirements
+1. Reproduce slow queries deterministically (fixed corpus, fixed queries, fixed seeds).
+2. Judge relevance objectively -> a benchmark with labels, not eyeballing.
+3. See *where* the time goes -> per-stage traces.
+4. Compare each change in isolation -> flags, one change at a time, cumulative table.
+5. Make it re-runnable -> one command regenerates everything, documented queries and method.
+
+## Goal
+Cut p95 latency and raise the share of queries with a relevant document in the top five, without regressing either metric
+at any step.
+
+## Work done
+| Piece | File |
+|---|---|
+| Synthetic corpus + 50 benchmark queries with labelled relevant docs | `src/corpus.py` |
+| Retrieval service (TF-IDF + SVD "LSA" embeddings, optional BM25 leg + reciprocal-rank fusion) | `src/service.py` |
+| Per-stage tracing (embed / score / topk / lexical / fuse / fetch), JSONL output | `src/tracer.py` |
+| Benchmark runner (p50/p95, hit@5, MRR@5, per-stage breakdown) | `src/benchmark.py` |
+
+**Benchmark design.** 40,000 documents over 40 topics; every topic has 30 concepts and each concept can be written with 3
+surface forms (synonyms, one common, two rare). A query asks about **two concepts** using one surface form each (rare form
+50% of the time) plus one noise word. A document is relevant only if it mentions **both** concepts in *any* surface form
+(7-22 relevant documents per query, median 14), so exact word matching misses many relevant documents.
+Queries are in `results/queries.json`.
+
+**Method.** Each configuration runs all 50 queries, 1 warm-up + 8 timed repetitions each (400 timed searches per config).
+p95 is over all 400 timings. Hit@5 = a relevant document appears in the top five. MRR@5 = mean reciprocal rank of the first
+relevant document in the top five.
+
+## Results (measured, `results/results.md`)
+| config (cumulative) | p50 ms | p95 ms | hit@5 | MRR@5 |
+|---|---:|---:|---:|---:|
+| 0 baseline | 91.46 | 119.46 | 46/50 (92%) | 0.813 |
+| 1 + precomputed normalised float32 matrix | 52.91 | 84.63 | 46/50 (92%) | 0.813 |
+| 2 + `argpartition` top-k | 54.81 | 82.51 | 46/50 (92%) | 0.813 |
+| 3 + dict lookup for record fetch | 1.83 | 2.16 | 46/50 (92%) | 0.813 |
+| 4 + hybrid dense + BM25 (RRF) | 2.32 | 2.84 | **50/50 (100%)** | **0.945** |
+
+p95: **119.46 ms -> 2.84 ms (98% lower)**; hit@5: **46/50 -> 50/50**.
+
+Mean time per stage (ms):
+
+| config | embed | score | topk | lexical | fuse | fetch |
+|---|---:|---:|---:|---:|---:|---:|
+| 0 baseline | 2.48 | 31.76 | 0.96 | - | - | 58.05 |
+| 1 + normalised f32 | 2.49 | 0.78 | 0.87 | - | - | 55.54 |
+| 2 + argpartition | 2.50 | 0.85 | 0.25 | - | - | 56.48 |
+| 3 + dict lookup | 1.25 | 0.31 | 0.16 | - | - | 0.04 |
+| 4 + hybrid | 1.18 | 0.49 | 0.17 | 0.46 | 0.23 | 0.03 |
+
+## Findings
+- **Two stages caused ~99% of baseline latency**, visible immediately in the traces: `fetch` (58 ms; a linear scan over the
+  record list for each of 50 candidates) and `score` (32 ms; `sklearn.cosine_similarity` re-normalises all 40,000 vectors on
+  every call). Embedding the query is only ~2.5 ms.
+- Precomputing a normalised float32 matrix cut `score` from 31.8 -> 0.8 ms, but p95 only improved ~30% because `fetch` still
+  dominated: **fix the biggest stage first, and the trace shows which one that is.**
+- `argpartition` instead of a full sort matters little at this size (0.96 -> 0.25 ms).
+- The dict lookup removed the `fetch` bottleneck (p95 82.5 -> 2.2 ms).
+- **Latency optimisations did not change relevance** (hit@5 stayed 46/50 through steps 0-3) - confirming they are pure
+  speed-ups. Only the **hybrid** step changed quality: BM25 catches exact rare-synonym matches that the 128-d LSA embedding
+  blurs, fusing both lifted hit@5 to 50/50 and MRR@5 from 0.813 to 0.945 for **+0.6 ms** (p95 2.16 -> 2.84 ms).
+- Improvements were verified per step with identical queries - so a later regression would be visible by re-running.
+
+## Honest limitations
+- The corpus is **synthetic** (needed for fixed ground truth); real-world gains will differ.
+- The baseline deliberately uses two common but inefficient patterns (`cosine_similarity` on every call, list-scan fetch);
+  the size of the speed-up reflects that choice, not a general claim.
+- The first version of the benchmark (single-concept queries) was **saturated at 100% hit@5 for every config**, so it could
+  not show relevance changes. I made the queries harder (two concepts, both required) *because the benchmark could not
+  discriminate*, not to hit a target number. That change is in git history.
+- 50 queries is small: 46 -> 50 is +4 queries. Run-to-run timing noise is a few ms on the slow configs.
+- Embeddings are LSA (TF-IDF + SVD), not a neural encoder: no model downloads were possible in the build environment.
+- Traces are local JSONL (`results/traces.jsonl`, one row per query: total + per-stage ms). The span structure maps directly to
+  Langfuse traces/spans, but no Langfuse server was connected here.
+
+## Reproduce
+```bash
+pip install numpy scipy scikit-learn
+python src/benchmark.py        # ~2 min; writes results/results.{md,json}, queries.json, traces.jsonl
+```

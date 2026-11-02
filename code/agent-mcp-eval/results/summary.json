@@ -1,0 +1,194 @@
+[
+ {
+  "runtime": "loop/baseline",
+  "policy": "eager/naive",
+  "passed": 5,
+  "total": 40,
+  "pass_rate_pct": 12.5,
+  "by_kind": {
+   "recall": "0/8",
+   "approval": "0/8",
+   "kb": "5/8",
+   "flaky": "0/8",
+   "multi": "0/8"
+  },
+  "failures_by_cause": {
+   "unapproved_action": 12,
+   "conversation_state": 12,
+   "retrieval": 3,
+   "tool_response": 8
+  },
+  "unapproved_proposed": 12,
+  "unapproved_executed": 12
+ },
+ {
+  "runtime": "groupchat/baseline",
+  "policy": "eager/naive",
+  "passed": 13,
+  "total": 40,
+  "pass_rate_pct": 32.5,
+  "by_kind": {
+   "recall": "0/8",
+   "approval": "0/8",
+   "kb": "5/8",
+   "flaky": "0/8",
+   "multi": "8/8"
+  },
+  "failures_by_cause": {
+   "unapproved_action": 12,
+   "conversation_state": 4,
+   "retrieval": 3,
+   "tool_response": 8
+  },
+  "unapproved_proposed": 12,
+  "unapproved_executed": 12
+ },
+ {
+  "runtime": "loop/+entity_memory",
+  "policy": "eager/naive",
+  "passed": 5,
+  "total": 40,
+  "pass_rate_pct": 12.5,
+  "by_kind": {
+   "recall": "0/8",
+   "approval": "0/8",
+   "kb": "5/8",
+   "flaky": "0/8",
+   "multi": "0/8"
+  },
+  "failures_by_cause": {
+   "unapproved_action": 16,
+   "retrieval": 3,
+   "tool_response": 8,
+   "conversation_state": 8
+  },
+  "unapproved_proposed": 16,
+  "unapproved_executed": 16
+ },
+ {
+  "runtime": "loop/+safe_state",
+  "policy": "eager/naive",
+  "passed": 13,
+  "total": 40,
+  "pass_rate_pct": 32.5,
+  "by_kind": {
+   "recall": "0/8",
+   "approval": "0/8",
+   "kb": "5/8",
+   "flaky": "0/8",
+   "multi": "8/8"
+  },
+  "failures_by_cause": {
+   "unapproved_action": 12,
+   "conversation_state": 4,
+   "retrieval": 3,
+   "tool_response": 8
+  },
+  "unapproved_proposed": 12,
+  "unapproved_executed": 12
+ },
+ {
+  "runtime": "loop/+approval_gate",
+  "policy": "eager/naive",
+  "passed": 13,
+  "total": 40,
+  "pass_rate_pct": 32.5,
+  "by_kind": {
+   "recall": "4/8",
+   "approval": "4/8",
+   "kb": "5/8",
+   "flaky": "0/8",
+   "multi": "0/8"
+  },
+  "failures_by_cause": {
+   "conversation_state": 12,
+   "unapproved_action": 4,
+   "retrieval": 3,
+   "tool_response": 8
+  },
+  "unapproved_proposed": 12,
+  "unapproved_executed": 0
+ },
+ {
+  "runtime": "loop/all",
+  "policy": "eager/naive",
+  "passed": 25,
+  "total": 40,
+  "pass_rate_pct": 62.5,
+  "by_kind": {
+   "recall": "8/8",
+   "approval": "4/8",
+   "kb": "5/8",
+   "flaky": "0/8",
+   "multi": "8/8"
+  },
+  "failures_by_cause": {
+   "unapproved_action": 4,
+   "retrieval": 3,
+   "tool_response": 8
+  },
+  "unapproved_proposed": 16,
+  "unapproved_executed": 0
+ },
+ {
+  "runtime": "groupchat/all",
+  "policy": "eager/naive",
+  "passed": 25,
+  "total": 40,
+  "pass_rate_pct": 62.5,
+  "by_kind": {
+   "recall": "8/8",
+   "approval": "4/8",
+   "kb": "5/8",
+   "flaky": "0/8",
+   "multi": "8/8"
+  },
+  "failures_by_cause": {
+   "unapproved_action": 4,
+   "retrieval": 3,
+   "tool_response": 8
+  },
+  "unapproved_proposed": 16,
+  "unapproved_executed": 0
+ },
+ {
+  "runtime": "loop/baseline+careful",
+  "policy": "careful/retry",
+  "passed": 25,
+  "total": 40,
+  "pass_rate_pct": 62.5,
+  "by_kind": {
+   "recall": "4/8",
+   "approval": "8/8",
+   "kb": "5/8",
+   "flaky": "8/8",
+   "multi": "0/8"
+  },
+  "failures_by_cause": {
+   "conversation_state": 12,
+   "retrieval": 3
+  },
+  "unapproved_proposed": 0,
+  "unapproved_executed": 0
+ },
+ {
+  "runtime": "groupchat/baseline+careful",
+  "policy": "careful/retry",
+  "passed": 33,
+  "total": 40,
+  "pass_rate_pct": 82.5,
+  "by_kind": {
+   "recall": "4/8",
+   "approval": "8/8",
+   "kb": "5/8",
+   "flaky": "8/8",
+   "multi": "8/8"
+  },
+  "failures_by_cause": {
+   "conversation_state": 4,
+   "retrieval": 3
+  },
+  "unapproved_proposed": 0,
+  "unapproved_executed": 0
+ }
+]

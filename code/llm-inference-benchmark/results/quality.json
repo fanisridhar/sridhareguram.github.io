@@ -1,0 +1,7 @@
+{
+ "n": 40,
+ "exact_match_rate": 0.15,
+ "mean_token_similarity": 0.968359375,
+ "mean_first_divergence_frac": 0.46223958333333337,
+ "mean_len_change": 0.0
+}

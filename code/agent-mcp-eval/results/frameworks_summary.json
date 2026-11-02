@@ -1,0 +1,172 @@
+[
+ {
+  "framework": "autogen",
+  "config": "baseline",
+  "policy": "eager/naive",
+  "passed": 5,
+  "total": 40,
+  "by_kind": {
+   "recall": "0/8",
+   "approval": "0/8",
+   "kb": "5/8",
+   "flaky": "0/8",
+   "multi": "0/8"
+  },
+  "failures_by_cause": {
+   "unapproved_action": 12,
+   "conversation_state": 12,
+   "retrieval": 3,
+   "tool_response": 8
+  },
+  "unapproved_proposed": 12,
+  "unapproved_executed": 12
+ },
+ {
+  "framework": "autogen",
+  "config": "+safe_state",
+  "policy": "eager/naive",
+  "passed": 13,
+  "total": 40,
+  "by_kind": {
+   "recall": "0/8",
+   "approval": "0/8",
+   "kb": "5/8",
+   "flaky": "0/8",
+   "multi": "8/8"
+  },
+  "failures_by_cause": {
+   "unapproved_action": 12,
+   "conversation_state": 4,
+   "retrieval": 3,
+   "tool_response": 8
+  },
+  "unapproved_proposed": 12,
+  "unapproved_executed": 12
+ },
+ {
+  "framework": "autogen",
+  "config": "all mitigations",
+  "policy": "eager/naive",
+  "passed": 25,
+  "total": 40,
+  "by_kind": {
+   "recall": "8/8",
+   "approval": "4/8",
+   "kb": "5/8",
+   "flaky": "0/8",
+   "multi": "8/8"
+  },
+  "failures_by_cause": {
+   "unapproved_action": 4,
+   "retrieval": 3,
+   "tool_response": 8
+  },
+  "unapproved_proposed": 16,
+  "unapproved_executed": 0
+ },
+ {
+  "framework": "autogen",
+  "config": "baseline, careful policy",
+  "policy": "careful/retry",
+  "passed": 25,
+  "total": 40,
+  "by_kind": {
+   "recall": "4/8",
+   "approval": "8/8",
+   "kb": "5/8",
+   "flaky": "8/8",
+   "multi": "0/8"
+  },
+  "failures_by_cause": {
+   "conversation_state": 12,
+   "retrieval": 3
+  },
+  "unapproved_proposed": 0,
+  "unapproved_executed": 0
+ },
+ {
+  "framework": "llamaindex",
+  "config": "baseline",
+  "policy": "eager/naive",
+  "passed": 5,
+  "total": 40,
+  "by_kind": {
+   "recall": "0/8",
+   "approval": "0/8",
+   "kb": "5/8",
+   "flaky": "0/8",
+   "multi": "0/8"
+  },
+  "failures_by_cause": {
+   "unapproved_action": 12,
+   "conversation_state": 12,
+   "retrieval": 3,
+   "tool_response": 8
+  },
+  "unapproved_proposed": 12,
+  "unapproved_executed": 12
+ },
+ {
+  "framework": "llamaindex",
+  "config": "+safe_state",
+  "policy": "eager/naive",
+  "passed": 13,
+  "total": 40,
+  "by_kind": {
+   "recall": "0/8",
+   "approval": "0/8",
+   "kb": "5/8",
+   "flaky": "0/8",
+   "multi": "8/8"
+  },
+  "failures_by_cause": {
+   "unapproved_action": 12,
+   "conversation_state": 4,
+   "retrieval": 3,
+   "tool_response": 8
+  },
+  "unapproved_proposed": 12,
+  "unapproved_executed": 12
+ },
+ {
+  "framework": "llamaindex",
+  "config": "all mitigations",
+  "policy": "eager/naive",
+  "passed": 25,
+  "total": 40,
+  "by_kind": {
+   "recall": "8/8",
+   "approval": "4/8",
+   "kb": "5/8",
+   "flaky": "0/8",
+   "multi": "8/8"
+  },
+  "failures_by_cause": {
+   "unapproved_action": 4,
+   "retrieval": 3,
+   "tool_response": 8
+  },
+  "unapproved_proposed": 16,
+  "unapproved_executed": 0
+ },
+ {
+  "framework": "llamaindex",
+  "config": "baseline, careful policy",
+  "policy": "careful/retry",
+  "passed": 25,
+  "total": 40,
+  "by_kind": {
+   "recall": "4/8",
+   "approval": "8/8",
+   "kb": "5/8",
+   "flaky": "8/8",
+   "multi": "0/8"
+  },
+  "failures_by_cause": {
+   "conversation_state": 12,
+   "retrieval": 3
+  },
+  "unapproved_proposed": 0,
+  "unapproved_executed": 0
+ }
+]

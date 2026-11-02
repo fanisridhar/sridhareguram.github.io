@@ -1,0 +1,100 @@
+location_id,week,total_source,total_dashboard,diff,root_cause
+-1.0,90,302,0.0,-302.0,NULL location dropped from dashboard
+-1.0,91,356,0.0,-356.0,NULL location dropped from dashboard
+-1.0,92,1202,0.0,-1202.0,NULL location dropped from dashboard
+-1.0,93,597,0.0,-597.0,NULL location dropped from dashboard
+-1.0,94,1203,0.0,-1203.0,NULL location dropped from dashboard
+-1.0,95,1164,0.0,-1164.0,NULL location dropped from dashboard
+-1.0,96,1132,0.0,-1132.0,NULL location dropped from dashboard
+-1.0,97,2280,0.0,-2280.0,NULL location dropped from dashboard
+-1.0,98,243,0.0,-243.0,NULL location dropped from dashboard
+-1.0,99,329,0.0,-329.0,NULL location dropped from dashboard
+-1.0,100,836,0.0,-836.0,NULL location dropped from dashboard
+-1.0,101,905,0.0,-905.0,NULL location dropped from dashboard
+-1.0,102,738,0.0,-738.0,NULL location dropped from dashboard
+-1.0,103,521,0.0,-521.0,NULL location dropped from dashboard
+0.0,90,13276,13936.0,660.0,duplicates + corrections both summed
+0.0,91,13255,13335.0,80.0,duplicate submission summed twice
+0.0,92,13830,14756.0,926.0,duplicates + corrections both summed
+0.0,93,12981,13135.0,154.0,duplicate submission summed twice
+0.0,95,11736,12251.0,515.0,duplicate submission summed twice
+0.0,96,12524,12764.0,240.0,duplicate submission summed twice
+0.0,97,14813,14895.0,82.0,duplicate submission summed twice
+0.0,98,11995,12149.0,154.0,duplicate submission summed twice
+0.0,99,12394,12738.0,344.0,duplicates + corrections both summed
+0.0,100,12637,13289.0,652.0,duplicate submission summed twice
+0.0,101,12361,13764.0,1403.0,duplicates + corrections both summed
+0.0,103,12955,13342.0,387.0,correction double-counted (original + corrected summed)
+1.0,90,13865,15085.0,1220.0,duplicates + corrections both summed
+1.0,91,14423,15497.0,1074.0,duplicates + corrections both summed
+1.0,92,14668,14903.0,235.0,duplicate submission summed twice
+1.0,93,15218,15459.0,241.0,correction double-counted (original + corrected summed)
+1.0,94,13148,13378.0,230.0,duplicate submission summed twice
+1.0,96,14823,14942.0,119.0,duplicates + corrections both summed
+1.0,99,14778,15528.0,750.0,duplicates + corrections both summed
+1.0,100,14316,14492.0,176.0,correction double-counted (original + corrected summed)
+1.0,101,14138,14464.0,326.0,duplicates + corrections both summed
+1.0,102,14573,15044.0,471.0,duplicates + corrections both summed
+1.0,103,13742,14250.0,508.0,duplicates + corrections both summed
+2.0,90,14870,15457.0,587.0,duplicate submission summed twice
+2.0,91,14161,14407.0,246.0,correction double-counted (original + corrected summed)
+2.0,93,14959,15290.0,331.0,duplicates + corrections both summed
+2.0,95,14128,15672.0,1544.0,duplicates + corrections both summed
+2.0,96,14271,15003.0,732.0,duplicate submission summed twice
+2.0,97,12738,13009.0,271.0,correction double-counted (original + corrected summed)
+2.0,99,14597,15012.0,415.0,correction double-counted (original + corrected summed)
+2.0,100,20529,21049.0,520.0,duplicate submission summed twice
+2.0,101,14068,14278.0,210.0,duplicate submission summed twice
+2.0,103,14181,14344.0,163.0,correction double-counted (original + corrected summed)
+3.0,90,15776,15931.0,155.0,correction double-counted (original + corrected summed)
+3.0,91,18113,18448.0,335.0,duplicates + corrections both summed
+3.0,92,15801,16771.0,970.0,duplicates + corrections both summed
+3.0,93,15499,16413.0,914.0,duplicates + corrections both summed
+3.0,94,16740,16942.0,202.0,duplicate submission summed twice
+3.0,95,15986,16514.0,528.0,duplicates + corrections both summed
+3.0,96,15686,15856.0,170.0,correction double-counted (original + corrected summed)
+3.0,97,27303,27853.0,550.0,duplicates + corrections both summed
+3.0,98,18388,18454.0,66.0,duplicate submission summed twice
+3.0,99,15602,15795.0,193.0,correction double-counted (original + corrected summed)
+3.0,100,15583,16103.0,520.0,duplicate submission summed twice
+3.0,101,15767,16296.0,529.0,duplicate submission summed twice
+3.0,103,16942,17929.0,987.0,duplicates + corrections both summed
+4.0,90,14321,15223.0,902.0,duplicates + corrections both summed
+4.0,92,14443,14514.0,71.0,duplicate submission summed twice
+4.0,93,14234,14582.0,348.0,duplicate submission summed twice
+4.0,94,16548,16981.0,433.0,duplicate submission summed twice
+4.0,95,13562,14029.0,467.0,correction double-counted (original + corrected summed)
+4.0,96,13468,13602.0,134.0,duplicate submission summed twice
+4.0,97,15494,15927.0,433.0,duplicates + corrections both summed
+4.0,100,13952,14254.0,302.0,duplicates + corrections both summed
+4.0,101,14153,15222.0,1069.0,duplicates + corrections both summed
+4.0,102,15983,16919.0,936.0,duplicates + corrections both summed
+5.0,90,13227,13315.0,88.0,correction double-counted (original + corrected summed)
+5.0,93,13425,14110.0,685.0,duplicate submission summed twice
+5.0,94,13816,14080.0,264.0,duplicate submission summed twice
+5.0,95,13963,14128.0,165.0,duplicates + corrections both summed
+5.0,96,12857,13123.0,266.0,duplicate submission summed twice
+5.0,98,13582,14099.0,517.0,correction double-counted (original + corrected summed)
+5.0,99,12998,13163.0,165.0,duplicates + corrections both summed
+5.0,100,12924,13023.0,99.0,duplicate submission summed twice
+5.0,101,17606,18717.0,1111.0,duplicates + corrections both summed
+5.0,103,16204,16643.0,439.0,duplicates + corrections both summed
+6.0,90,18938,20252.0,1314.0,duplicates + corrections both summed
+6.0,92,17702,18178.0,476.0,duplicates + corrections both summed
+6.0,93,18548,19382.0,834.0,duplicate submission summed twice
+6.0,96,19120,19780.0,660.0,duplicates + corrections both summed
+6.0,97,18910,19280.0,370.0,duplicate submission summed twice
+6.0,98,17400,17645.0,245.0,duplicate submission summed twice
+6.0,100,17593,18855.0,1262.0,duplicates + corrections both summed
+6.0,101,18220,18857.0,637.0,correction double-counted (original + corrected summed)
+6.0,103,17401,17880.0,479.0,duplicates + corrections both summed
+7.0,91,16438,16585.0,147.0,correction double-counted (original + corrected summed)
+7.0,92,15692,16094.0,402.0,duplicate submission summed twice
+7.0,94,15671,15945.0,274.0,duplicate submission summed twice
+7.0,95,15917,16141.0,224.0,correction double-counted (original + corrected summed)
+7.0,96,15312,15650.0,338.0,correction double-counted (original + corrected summed)
+7.0,97,16112,16421.0,309.0,duplicates + corrections both summed
+7.0,98,16825,16912.0,87.0,duplicate submission summed twice
+7.0,101,15630,15847.0,217.0,correction double-counted (original + corrected summed)
+7.0,102,16091,16372.0,281.0,correction double-counted (original + corrected summed)
+7.0,103,16212,16539.0,327.0,duplicate submission summed twice

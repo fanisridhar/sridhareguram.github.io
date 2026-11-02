@@ -1,0 +1,32 @@
+{
+ "cells_compared": 126,
+ "cells_mismatched": 99,
+ "mismatch_rate_pct": 78.57,
+ "total_source": 1717031,
+ "total_dashboard": 1745085,
+ "net_abs_diff": 28054,
+ "gross_abs_diff": 51670,
+ "by_root_cause": [
+  {
+   "root_cause": "NULL location dropped from dashboard",
+   "cells": 14,
+   "net_diff": -11808.0
+  },
+  {
+   "root_cause": "correction double-counted (original + corrected summed)",
+   "cells": 19,
+   "net_diff": 5333.0
+  },
+  {
+   "root_cause": "duplicate submission summed twice",
+   "cells": 32,
+   "net_diff": 10547.0
+  },
+  {
+   "root_cause": "duplicates + corrections both summed",
+   "cells": 34,
+   "net_diff": 23982.0
+  }
+ ],
+ "residual_after_fix": 0
+}

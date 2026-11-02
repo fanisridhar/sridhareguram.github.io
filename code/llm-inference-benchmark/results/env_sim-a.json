@@ -1,0 +1,13 @@
+{
+ "engine": "SIMULATED:sim-a",
+ "model": "none",
+ "quantization": "none",
+ "server_args": "",
+ "requests_sha256": "04164edf24a2924341f82b1c644bef69ac74d47f0cbc4fd11ef592d6592f0cbc",
+ "gpu": null,
+ "cuda": "",
+ "git_commit": "60b6ffa",
+ "python": "3.13.18",
+ "platform": "Linux-6.18.44-fc-v185-x86_64-with-glibc2.39",
+ "pip_freeze_subset": null
+}

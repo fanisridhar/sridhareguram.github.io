@@ -1,0 +1,15 @@
+# Azure ML command job that trains + evaluates the detector (run with: az ml job create -f azureml/job.yml)
+# NOTE: written for Azure ML SDK v2 / CLI v2. It was not executed in the sandbox this repo was built in
+# (no Azure subscription there); the same code runs locally via `python src/run_comparison.py`.
+$schema: https://azuremlschemas.azureedge.net/latest/commandJob.schema.json
+display_name: inventory-anomaly-train
+experiment_name: inventory-anomaly-poc
+code: ../
+command: >-
+  pip install -r requirements.txt &&
+  python src/generate_data.py --out data/inventory_counts.csv &&
+  python src/run_comparison.py
+environment:
+  image: mcr.microsoft.com/azureml/openmpi4.1.0-ubuntu22.04
+  conda_file: azureml/conda.yml
+compute: azureml:cpu-cluster
