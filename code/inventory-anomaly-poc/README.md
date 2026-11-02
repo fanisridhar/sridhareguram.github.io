@@ -10,7 +10,7 @@ detector, a **decision tree**, an **SVM**, a **random-forest + gradient-boosting
 5 independently generated datasets. A **Flask site** lets a reviewer confirm or dismiss flags, and a **SQL + Python
 reconciliation** checks dashboard (Power BI-style) totals against source records.
 
-> **Data note.** Real inventory data is private, so every number here is measured on **synthetic data with injected, labelled
+> **Data note.** Real inventory data is private, so every number here is measured on **generated data (not production data) with injected, labelled
 > anomalies** (needed to score detectors objectively). The Azure ML files are **templates that were not run** (no Azure
 > subscription in the build environment), and Power BI is represented by a CSV export. Everything else runs locally.
 
@@ -28,7 +28,7 @@ the reported numbers trustworthy.
 ## Work done
 | Piece | File |
 |---|---|
-| Synthetic data: 60 items x 8 locations x 104 weeks, seasonality + trend + per-series noise + **benign promotion surges**; 5 labelled anomaly types | `src/generate_data.py` |
+| Data generator: 60 items x 8 locations x 104 weeks, seasonality + trend + per-series noise + **benign promotion surges**; 5 labelled anomaly types | `src/generate_data.py` |
 | Leakage-safe features (week *t* uses only counts up to *t*; robust median/MAD stats; seasonal lag) and time-ordered split | `src/features.py` |
 | Regression, decision tree, SVM, RF+GB ensemble | `src/classical_models.py` |
 | PyTorch **MLP -> GRU** two-stage model (stage 1 classification model; stage 2 RNN over the last 12 weeks of stage-1 embeddings + probabilities) | `src/torch_models.py` |
@@ -93,7 +93,7 @@ unit error, and "stale" (previous week's number repeated). Each model's alert th
    locations; the fixed aggregate was confirmed by a second, independent implementation (residual 0).
 
 ## Honest limitations
-- **Synthetic data**: absolute scores say nothing about real inventory. A first version of the generator (large, isolated anomalies
+- **Generated data (not real inventory)**: absolute scores say nothing about real inventory. A first version of the generator (large, isolated anomalies
   only) let **every model score ~100%**, so it could not rank them; the final generator adds noisier series, benign promotion
   surges and subtler/stale anomalies *because the comparison was uninformative*, not to favour a model. Anomaly types were fixed
   before looking at results of the final version.

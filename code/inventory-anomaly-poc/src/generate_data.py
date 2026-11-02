@@ -1,4 +1,4 @@
-"""Synthetic weekly inventory counts per (item, location) with LABELLED anomalies.
+"""Programmatically generated weekly inventory counts per (item, location) with LABELLED anomalies.
 
 Real inventory data is private, so this generator produces data with the same
 structure the POC uses -- historical counts by item and location -- plus ground

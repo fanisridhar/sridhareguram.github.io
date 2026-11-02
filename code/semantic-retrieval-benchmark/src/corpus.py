@@ -1,6 +1,6 @@
-"""Synthetic corpus + 50-query benchmark with ground-truth relevance.
+"""Generated corpus + 50-query benchmark with ground-truth relevance.
 
-Why synthetic: the benchmark must be fixed, reproducible and have *known*
+Why generated: the benchmark must be fixed, reproducible and have *known*
 relevance labels. Every document belongs to a topic and mentions a set of
 concepts; each concept can be written with several surface forms (synonyms).
 A query asks about two concepts using one surface form each. A document is relevant
